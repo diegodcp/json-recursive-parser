@@ -1,0 +1,40 @@
+<div class="container">
+  <p><strong>Resultado del TEST</strong></p>
+  <p>Context test id: {{ resultado.context_test_id }}</p>
+  <p>Execution date: {{ resultado.execution_date }}</p>
+  <p>MSISDN: {{ resultado.msisdn }}</p>
+  <p>Criticity: {{ resultado.criticity }}</p>
+  <p>Result code: {{ resultado.result_code }}</p>
+  <p>Interpretación: {{ resultado.interpretation }}</p>
+  <p>Observación: {{ resultado.observation }}</p>
+  <hr />
+  <ng-container
+    *ngTemplateOutlet="
+      mitemplaterecursivo;
+      context: { list: resultado.resultados }
+    "
+  ></ng-container>
+
+  <ng-template #mitemplaterecursivo let-list="list" let-recursive="recursive">
+    <li *ngFor="let item of list">
+      <span class="{{ !recursive ? 'bold' : '' }}">{{ item.nombre }}</span>
+      <ul *ngIf="item.contenido?.length > 0">
+        <div *ngFor="let content of item.contenido; let i = index">
+          <div class="row {{ !(i % 2) ? 'dark' : '' }}">
+            <div class="col">{{ content.nombre }}</div>
+            <div class="col">{{ content.valor }}</div>
+          </div>
+        </div>
+      </ul>
+
+      <ul class="circle" *ngIf="item.hijo?.length > 0">
+        <ng-container
+          *ngTemplateOutlet="
+            mitemplaterecursivo;
+            context: { list: item.hijo, recursive: true }
+          "
+        ></ng-container>
+      </ul>
+    </li>
+  </ng-template>
+</div>

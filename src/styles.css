@@ -1,0 +1,12 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.dark {
+  background-color: #eaeaea;
+}
+.bold {
+  font-weight: bold;
+}
+.circle {
+  list-style-type: circle;
+}

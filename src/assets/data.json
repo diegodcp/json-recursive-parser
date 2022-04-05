@@ -1,0 +1,83 @@
+{
+  "context_test_id": "12345",
+  "execution_date": "2022/01/25 18:30:00",
+  "msisdn": "666123456",
+  "criticity": "0",
+  "result_code": "OK_TEST1",
+  "interpretation": "Servicio correctamente provisionado",
+  "observation": "Observacion XXYY: ",
+  "resultados": [
+    {
+      "nombre": "Persa",
+      "contenido": [
+        { "nombre": "IMSI", "valor": "<imsi>" },
+        {
+          "nombre": "tipo_tarjeta",
+          "valor": "SIM 2G || SIM 3G || SIM 4G || SIM 5G"
+        },
+        { "nombre": "MSISDN", "valor": "<msisdn>" },
+        { "nombre": "TIPO_DE_ACCESO", "valor": "Voz || Datos || Voz y Datos" },
+        { "nombre": "tipo_perfil", "valor": "Pospago multisim" }
+      ],
+      "hijo": [
+        {
+          "nombre": "Voz",
+          "contenido": [
+            { "nombre": "servicios_telefonia", "valor": "TS11-34xxxxxxxx" },
+            { "nombre": "servicios_sms_entrantes", "valor": "TS11-34xxxxxxxx" },
+            { "nombre": "Servicio_sms_salientes", "valor": "TS11-34xxxxxxxx" }
+          ],
+          "hijo": [
+            {
+              "nombre": "llamada_en_espera",
+              "contenido": [
+                { "nombre": "voz", "valor": "Activo" },
+                { "nombre": "llamada_datos_asincronos", "valor": "No activo" },
+                { "nombre": "valor", "valor": "CAW" }
+              ]
+            },
+            {
+              "nombre": "localizacion_voz",
+              "contenido": [
+                { "nombre": "vlr", "valor": "CAT01Q2 (34xxxxxxxx)" },
+                { "nombre": "msc", "valor": "CAT01Q2 (34xxxxxxxx)" },
+                { "nombre": "ms_purged", "valor": "No" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "sigma",
+      "contenido": [
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato1 de sigma" },
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato2 de sigma" }
+      ]
+    },
+    {
+      "nombre": "resert",
+      "contenido": [
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato1 de resert" },
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato2 de resert" }
+      ]
+    },
+    {
+      "nombre": "pcrf",
+      "contenido": [
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato1 de pcrf" },
+        { "nombre": "ms_purged", "valor": "Estas cogiendo el dato2 de pcrf" }
+      ],
+      "hijo": [
+        {
+          "nombre": "Hijos de Servicios Telef.",
+          "contenido": [
+            { "nombre": "prueba", "valor": "Activo" },
+            { "nombre": "test", "valor": "No activo" },
+            { "nombre": "OPAA", "valor": "WILL SMITH" }
+          ]
+        }
+      ]
+    }
+  ]
+}
